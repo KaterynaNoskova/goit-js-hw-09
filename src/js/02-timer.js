@@ -2,9 +2,9 @@ import flatpickr from "/node_modules/flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
+
 const startBtn = document.querySelector('[data-start]');
 const picker = document.querySelector('#datetime-picker');
-
 const timerTotal = {
     timerDays: document.querySelector('span[data-days]'),
     timerHours: document.querySelector('span[data-hours]'),
@@ -12,10 +12,10 @@ const timerTotal = {
     timerSeconds: document.querySelector('span[data-seconds]'),
 };
 
-
 picker.value = '';
 
 picker.setAttribute('placeholder', 'Choose your date');
+
 startBtn.setAttribute('disable', 'disable');
 
 const options = {
@@ -41,12 +41,10 @@ function getConversionMs(ms){
     const minute = second * 60;
     const hour = minute * 60;
     const day = hour * 24;
-
     const days = Math.floor(ms/day);
     const hours = Math.floor((ms % day) / hour);
     const minutes = Math.floor(((ms % day) % hour) / minute);
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-
     return {days, hours, minutes, seconds};
 };
 
@@ -60,15 +58,16 @@ let counter = null;
 
 function onClick(){
     counter = setInterval(newCounter, 1000);
-
     function newCounter (){
         let inputDate = new Date(picker.value);
         const currentDate = Date.now();
         const needsTime = inputDate.getTime() - currentDate;
-        const {days,hours,minutes,seconds} = getConversionMs(needsTime);
-    };
-    timerTotal.timerDays.textContent = conversionInString(days);
+      const { days, hours, minutes, seconds } = getConversionMs(needsTime);
+        timerTotal.timerMinutes.textContent = minutes;
+      timerTotal.timerSeconds.textContent = seconds;
+      timerTotal.timerDays.textContent = conversionInString(days);
     timerTotal.timerHours.textContent = conversionInString(hours);
     timerTotal.timerMinutes.textContent = conversionInString(minutes);
     timerTotal.timerSeconds.textContent = conversionInString(seconds);
+    };
 };
