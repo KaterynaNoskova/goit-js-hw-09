@@ -1,0 +1,14 @@
+button{
+    border-color: transparent;
+    border-radius: 5px;
+    background-color: hotpink;
+    padding: 10px 30px;
+    margin: 15px;
+    font-size: 18px;
+    font-family: 'Arial';
+    transition-duration: 0.4s;
+}
+button:hover{
+    background-color: aqua;
+    color: white;
+}
