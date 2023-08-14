@@ -65,13 +65,10 @@ function onClick(){
         let inputDate = new Date(picker.value);
         const currentDate = Date.now();
         const needsTime = inputDate.getTime() - currentDate;
-        const getNeedsTime = getConversionMs(needsTime);
+        const {days,hours,minutes,seconds} = getConversionMs(needsTime);
     };
-    timerTotal.timerDays.textContent = conversionInString(getNeedsTime.days);
-    timerTotal.timerHours.textContent = conversionInString(getNeedsTime.hours);
-    timerTotal.timerMinutes.textContent = conversionInString(getNeedsTime.minutes);
-    timerTotal.timerSeconds.textContent = conversionInString(getNeedsTime.seconds);
+    timerTotal.timerDays.textContent = conversionInString(days);
+    timerTotal.timerHours.textContent = conversionInString(hours);
+    timerTotal.timerMinutes.textContent = conversionInString(minutes);
+    timerTotal.timerSeconds.textContent = conversionInString(seconds);
 };
-
-
-
