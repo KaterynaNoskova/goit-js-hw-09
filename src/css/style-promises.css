@@ -1,0 +1,14 @@
+button{
+    border-color: transparent;
+    border-radius: 25px;
+    background-color: lightsalmon;
+    padding: 5px 25px;
+    font-size: 15px;
+}
+input{
+    border-color: transparent;
+    border-radius: 15px;
+    padding: 5px 25px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
