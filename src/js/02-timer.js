@@ -64,16 +64,18 @@ function onClick(){
         let inputDate = new Date(picker.value);
         const currentDate = Date.now();
         const needsTime = inputDate.getTime() - currentDate;
+
+        if (needsTime <= 0){
+            clearInterval(newCounter);
+            Report.success(`Time is gone!`);
+            return;
+        };
+
         const { days, hours, minutes, seconds } = getConversionMs(needsTime);
-    // timerTotal.timerMinutes.textContent = minutes;
-    // timerTotal.timerSeconds.textContent = seconds;
+
     timerTotal.timerDays.textContent = conversionInString(days);
     timerTotal.timerHours.textContent = conversionInString(hours);
     timerTotal.timerMinutes.textContent = conversionInString(minutes);
     timerTotal.timerSeconds.textContent = conversionInString(seconds);
     };
-    // if(counter<=0){
-    //     clearInterval(newCounter);
-    //     return;
-    // };
 };
