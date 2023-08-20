@@ -67,7 +67,7 @@ function onClick(){
         const needsTime = inputDate.getTime() - currentDate;
 
         if (needsTime <= 0){
-            clearInterval(newCounter);
+            clearInterval(counter);
             Notify.info(`Time is gone!`);
             return;
         };
