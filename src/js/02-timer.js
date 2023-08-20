@@ -1,5 +1,6 @@
 import flatpickr from "/node_modules/flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import { Notify } from "notiflix";
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const startBtn = document.querySelector('[data-start]');
@@ -67,7 +68,7 @@ function onClick(){
 
         if (needsTime <= 0){
             clearInterval(newCounter);
-            Report.success(`Time is gone!`);
+            Notify.info(`Time is gone!`);
             return;
         };
 
